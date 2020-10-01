@@ -7,8 +7,8 @@ def wordValue(arr)
   arr_integer = []
   # for each element of arr
   arr.each do |word|
-    # find the matching number of letters
-    matching_char = word.chars.map { |char| position(char) }
+    # find the matching number of letters after deleting spaces
+    matching_char = word.delete(' ').chars.map { |char| position(char) }
     # add them together & push them in array of integer
     arr_integer << matching_char.reduce(:+)
   end
@@ -16,5 +16,8 @@ def wordValue(arr)
   arr_integer.map.with_index { |num, i| num * (i+1) }
 end
 
-p wordValue(["codewars","abc","xyz"]);
+# wordValue(["codewars","abc","xyz"]);
 # should return [88,12,225]
+
+# wordValue(["abc abc","abc abc","abc","abc"])
+# [12,24,18,24]
