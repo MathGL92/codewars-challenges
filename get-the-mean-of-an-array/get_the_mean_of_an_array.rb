@@ -1,3 +1,6 @@
 def get_average(marks)
-  raise NotImplementedError.new "TODO: get_average"
+  marks.reduce(:+) / marks.size
 end
+
+# p get_average([2, 2, 2, 2])
+# should return 2
