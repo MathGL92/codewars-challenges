@@ -4,7 +4,7 @@ def doubles(string)
     if !result_array.empty? && result_array[-1] == char
       result_array.pop
     else
-      result_array.push(char)
+      result_array << char
     end
   end
   result_array.join('')
