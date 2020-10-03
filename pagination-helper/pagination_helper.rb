@@ -1,7 +1,6 @@
 # TODO: complete this class
 
 class PaginationHelper
-
   # The constructor takes in an array of items and a integer indicating how many
   # items fit within a single page
   def initialize(collection, items_per_page)
@@ -26,9 +25,9 @@ class PaginationHelper
     # array of pages : transform page_count to array of page_count elements
     pages_array = Array.new(page_count) { |i| i }
     # return the number of item on page_index if page_index in the range else return -1
-    if pages_array[page_index].nil? || page_index < 0
-      -1
-    elsif pages_array[page_index] != pages_array[-1]
+    return -1 unless (0...page_count).include?(page_index)
+
+    if pages_array[page_index] != pages_array[-1]
       @items_per_page
     else
       item_count % @items_per_page
@@ -40,11 +39,9 @@ class PaginationHelper
   def page_index(item_index)
     # input item index
     # guard clause to check item in is the range
-    if @collection[item_index].nil? || item_index < 0
-      -1
-    else
-      # return the page index if item in the range else return -1
-      item_index / @items_per_page
-    end
+    return -1 unless (0...item_count).include?(item_index)
+
+    # return the page index if item in the range else return -1
+    item_index / @items_per_page
   end
 end
