@@ -19,6 +19,7 @@ describe "#PaginationHelper" do
     actual = helper.item_count
     expected = 6
     expect(actual).to eq(expected) # passes if `actual == expected`
+    # Test.assert_equals(helper.page_count, 2, "helper.page_count should return == 2")
   end
 
   it "helper.page_item_count(0) should return 4" do
